@@ -1,0 +1,49 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Comportamiento del invocador</h1>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-content>
+          <mat-grid-list cols="3" rowHeight="100px">
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <img
+                src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2015/september_2015/PPIU/pb_icon_final.jpg"
+                alt="" class="responsive-img" height="100vh" width="100vw">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-title>{{ nameInvocador }}</mat-card-title>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-title>Nivel de honor</mat-card-title>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <section class="mat-body center-align">
+                <mat-card-title>Descripcion de por que el honor</mat-card-title>
+                Descripcion de los motivos de honor y consejos Descripcion de los motivos de honor y consejos
+                <br>
+                Mute all o icon mute o ayuda en vision
+              </section>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-title>Rank 2</mat-card-title>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-title>Porcentaje victoria</mat-card-title>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-title>Posiciones preferidas</mat-card-title>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-flat-button routerLink="/calify-invocador" color="primary">Calificar</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-flat-button routerLink="/calify-invocador" color="warn">Agregar DodgeAlert</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

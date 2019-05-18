@@ -1,0 +1,48 @@
+<form [formGroup]="invocadoresForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Busca y dodgea</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre1, Nombre2" formControlName="nombreInvocador">
+            <mat-error *ngIf="invocadoresForm.controls['nombreInvocador'].hasError('required')">
+              El nombre o nombres de invocador son requeridos <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/invocador/{{ invocadoresForm.value.nombreInvocador }}">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="info-card">
+    <mat-card-header>
+      <mat-card-title>¡Te presentamos DodgeAlert!</mat-card-title>
+      <mat-card-subtitle>
+        <p>
+          DodgeAlert es una herramienta para seguir y alertar cuando una partida pueda tener un mal ambiente, por ello
+          es mejor dodgear.
+          <br>
+          Es mejor perder 5 PL y 5 minutos de sancion, que 20 PL y 35 en una partida con ambiente de toxicicdad
+        </p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="12" rowHeight="100px">
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-card-title>GIF 1</mat-card-title>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-card-title>GIF 2</mat-card-title>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-card-title>GIF 3</mat-card-title>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</form>

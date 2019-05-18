@@ -1,0 +1,57 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Calificar invocador</h1>
+  <mat-grid-list cols="1" rowHeight="1000px">
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-content>
+          <mat-grid-list cols="1" rowHeight="150px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <section class="mat-body center-align">
+                <mat-card-title>Calificacion Sugerida</mat-card-title>
+                Descripcion de los motivos de honor y consejos Descripcion de los motivos de honor y consejos
+                <br>
+                <h1 class="mat-headline">{{califyTitle}}</h1>
+              </section>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="calify-form">
+              <form [formGroup]="califyForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="Claificacion" formControlName="calify" (selectionChange)="califyChange()">
+                        <mat-option *ngFor="let calify of califycations" [value]="calify">
+                          {{ calify.name }} | {{ calify.abbreviation }} 
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="califyForm.controls['calify'].hasError('required')">
+                        La calificacion es requerida <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>Motivo de calificacion</mat-label>
+                      <textarea matInput cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"
+                        placeholder="Describe en pocas palabras cual es el motivo de tu calificacion para este invocador"></textarea>
+                      <mat-hint>Motivo de calificacion</mat-hint>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="120px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-flat-button routerLink="/calify-invocador" color="primary">Calificar</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-flat-button routerLink="/calify-invocador" color="warn">Agregar DodgeAlert</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
