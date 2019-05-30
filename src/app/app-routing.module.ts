@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'form2', component: FormdosComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'invocador/:invocador', component: SingleinvocadorComponent },
-  { path: 'calify-invocador', component: CalifyinvocadorComponent }
+  { path: 'calificar-invocador/:invocador', component: CalifyinvocadorComponent }
 ];
 
 @NgModule({

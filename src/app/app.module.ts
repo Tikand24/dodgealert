@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule, MatRadioModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import { FormdosComponent } from './formdos/formdos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { SingleinvocadorComponent } from './singleinvocador/singleinvocador.component';
 import { CalifyinvocadorComponent } from './califyinvocador/califyinvocador.component';
+
+import { DataApiService } from 'src/app/services/data-api.service';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,10 @@ import { CalifyinvocadorComponent } from './califyinvocador/califyinvocador.comp
     MatCardModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

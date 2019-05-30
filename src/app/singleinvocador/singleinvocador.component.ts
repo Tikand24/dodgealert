@@ -1,7 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { DataApiService } from '../services/data-api.service';
+
+export interface Summoner {
+  clasification_id: string;
+  created_at: string;
+  honor_level_id: string;
+  id: string;
+  name: string;
+  percentage_victori: string;
+  state: string;
+  updated_at: string;
+  user_id: string;
+}
 
 @Component({
   selector: 'app-singleinvocador',
@@ -11,6 +24,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 export class SingleinvocadorComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
   private nameInvocador: String;
+  private honorInovcador: String;
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -31,14 +45,21 @@ export class SingleinvocadorComponent implements OnInit{
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute) {
+  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private dataApi: DataApiService) {
   }
   ngOnInit() {
     this.getInvocador();
   }
   getInvocador(): void {
-    this.nameInvocador=this.route.snapshot.paramMap.get('invocador');
-    const invocador = +this.route.snapshot.paramMap.get('invocador');
-    console.log(this.route.snapshot.paramMap.get('invocador'));
+    /*this.dataApi.getDataApiRiot(this.nameInvocador).subscribe((summoner) => {
+      console.log(summoner);
+    });*/
+    this.dataApi.getSummonerName(this.route.snapshot.paramMap.get('invocador')).subscribe((summoner: Summoner)  => {
+      this.getConverted(summoner.name,summoner.id);
+    });
+  }
+  getConverted(name: String, honor: String): void {
+    this.nameInvocador=name;
+    this.honorInovcador=honor;
   }
 }

@@ -1,6 +1,8 @@
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DataApiService } from '../services/data-api.service';
+import { Rating } from '../models/Rating';
 
 @Component({
   selector: 'app-califyinvocador',
@@ -9,32 +11,32 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CalifyinvocadorComponent {
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
-  califyForm = this.fb.group({
-    calify: [null, Validators.required]
+  ratingForm = this.fb.group({
+    rating: [null, Validators.required]
   });
-  califyTitle='';
+  ratingTitle='';
   hasUnitNumber = false;
 
-  califycations= [
-    {name: 'Poco Aceptable', abbreviation: 'A-'},
-    {name: 'Aceptable', abbreviation: 'A+'},
-    {name: 'Lamentable', abbreviation: 'B'},
-    {name: 'No Apto', abbreviation: 'B+'},
-    {name: 'Perfecto', abbreviation: 'S+'},
-    {name: 'Buena Actitud', abbreviation: 'S-'},
-    {name: 'Casi perfecto', abbreviation: 'S'}
-  ];
+  private ratings: Rating[];
 
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dataApiService: DataApiService) {}
 
   onSubmit() {
     alert('Thanks!');
   }
-  califyChange () {
-    console.log(this.califyForm.value.calify);
-    if (this.califyForm.value.calify) {
-      this.califyTitle = this.califyForm.value.calify.name + ' | ' + this.califyForm.value.calify.abbreviation;
+  ratingChange () {
+    console.log(this.ratingForm.value.rating);
+    if (this.ratingForm.value.rating) {
+      this.ratingTitle = this.ratingForm.value.rating.name + ' | ' + this.ratingForm.value.rating.description;
     }
+  }
+  ngOnInit(){
+    this.paramDefault();
+  }
+  paramDefault(){
+    this.dataApiService.getRatingsHonor().subscribe((rating: Rating[]) => {
+      this.ratings = rating;
+    });
   }
 }
