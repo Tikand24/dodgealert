@@ -26,7 +26,6 @@ export class CalifyinvocadorComponent {
     alert('Thanks!');
   }
   ratingChange () {
-    console.log(this.ratingForm.value.rating);
     if (this.ratingForm.value.rating) {
       this.ratingTitle = this.ratingForm.value.rating.name + ' | ' + this.ratingForm.value.rating.description;
     }

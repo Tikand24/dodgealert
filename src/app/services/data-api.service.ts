@@ -16,6 +16,9 @@ export class DataApiService {
   getSummonerName(name: String){
     return this.http.get(this.url_api+"summoner/"+name);
   }
+  getMultiSummonerName(name: String){
+    return this.http.get(this.url_api+"multi-summoner/"+name);
+  }
   getDataApiRiot(){
     return this.http.get(this.url_api+"seed-data");
   }

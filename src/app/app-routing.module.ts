@@ -7,6 +7,8 @@ import { FormdosComponent } from './formdos/formdos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { SingleinvocadorComponent } from "./singleinvocador/singleinvocador.component";
 import { CalifyinvocadorComponent } from "./califyinvocador/califyinvocador.component";
+import { MultiinvocadorComponent } from './multiinvocador/multiinvocador.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'form2', component: FormdosComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'invocador/:invocador', component: SingleinvocadorComponent },
-  { path: 'calificar-invocador/:invocador', component: CalifyinvocadorComponent }
+  { path: 'calificar-invocador/:invocador', component: CalifyinvocadorComponent },
+  { path: 'multi-invocador/:invocador', component: MultiinvocadorComponent }
 ];
 
 @NgModule({

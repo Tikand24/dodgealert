@@ -1,0 +1,56 @@
+.grid-container {
+    margin: 20px;
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background: #eaeaea;
+  }
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  
+  img.responsive-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .center, .center-align {
+    text-align: center;
+  }
+  .left-absolute {
+    position: absolute;
+    left: 5px;
+    justify-content: left;
+    text-align: left;
+    float: left !important;
+  }
+  
+.box {
+  border: 1px solid #cdd2d2;
+  box-shadow: 0 1px #dcdfdf;
+  background: #f2f2f2;
+  border-radius: 2px;
+}

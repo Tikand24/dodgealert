@@ -1,0 +1,90 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Comportamiento del invocador</h1>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <div class="dashboard-card">
+        <mat-grid-list cols="12" rowHeight="100px" *ngFor="let invocador of invocadores" class="box">
+          <mat-grid-tile [colspan]="2" [rowspan]="2">
+            <div *ngIf="invocador.clasification != null" class="center">
+              <div>
+                <h3>{{ invocador.name }} id {{ invocador.id }}</h3>
+              </div>
+              <div>
+                <img src="{{ invocador.clasification.icon_src }}" alt="" class="responsive-img" height="40px"
+                  width="40px">
+              </div>
+              <div>
+                <small>
+                  {{ invocador.clasification.name }} {{ invocador.clasification.level }}
+                </small>
+              </div>
+            </div>
+            <div *ngIf="invocador.clasification == null" class="center">
+              <div>
+                <h3>{{ invocador.name }} id {{ invocador.id }}</h3>
+              </div>
+              <div clas="mat-display-1">
+                <img src="assets/img/ranks/default.png" alt="No icono" class="responsive-img" height="40px"
+                  width="40px">
+              </div>
+              <div>
+                <small>Unranked</small>
+              </div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="2">
+            <div *ngIf="invocador.honor != null" class="center">
+              <div>
+                <img src="{{ invocador.honor.icon_src }}" alt="" height="100px" width="100px">
+              </div>
+              <div>
+                <h2>{{ invocador.honor.name }}</h2>
+              </div>
+            </div>
+            <div *ngIf="invocador.honor == null" class="center">
+              <div>
+                <img src="assets/img/honor/locked.png" alt="No icono" height="70px" width="70px">
+              </div>
+              <div clas="mat-display-1">
+                Sin honor
+              </div>
+              <div class="mat-small">
+                ¿Esta mal? ayudanos a actualizar a tus compañeros
+              </div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="5" [rowspan]="2">
+            <div *ngIf="invocador.clasification != null" class="center">
+              <section class="mat-body center-align">
+                <mat-card-title>Descripcion de por que el honor</mat-card-title>
+                <div>
+                    Descripcion de los motivos de honor y consejos Descripcion de los motivos de honor y consejos
+                    <br>
+                    Mute all o icon mute o ayuda en vision
+                </div>
+              </section>
+            </div>
+            <div *ngIf="invocador.clasification == null" class="center">
+              <section class="mat-body center-align">
+                <mat-card-title></mat-card-title>
+                <div>
+                    Descripcion de los motivos de honor y consejos Descripcion de los motivos de honor y consejos
+                    <br>
+                    Mute all o icon mute o ayuda en vision
+                </div>
+              </section>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+            <div class="left-absolute">
+              <span>Historial</span>
+              <div><span>Hace x con honor 3</span></div>
+              <div><span>Hace x con honor 3</span></div>
+              <div><span>Hace x con honor 3</span></div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -8,6 +8,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  background: #eaeaea;
 }
 
 .more-button {
@@ -39,10 +40,14 @@ img.responsive-img {
   height: auto;
 }
 
-mat-grid-tile {
-  background: lightblue;
-}
 
 .center, .center-align {
   text-align: center;
+}
+
+.box {
+    border: 1px solid #cdd2d2;
+    box-shadow: 0 1px #dcdfdf;
+    background: #f2f2f2;
+    border-radius: 2px;
 }

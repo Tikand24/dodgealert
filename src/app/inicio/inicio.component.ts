@@ -16,13 +16,31 @@ export class InicioComponent {
   hasUnitNumber = false;
 
   constructor(private fb: FormBuilder,private dataApi:DataApiService, private router: Router) {
-    console.log("constructor");
     this.getSummoner();
+    this.onChangeNombre();
   }
 
+  onChangeNombre(){
+    this.invocadoresForm.get('nombreInvocador').valueChanges.subscribe(val => {
+      let invocadorArray = val.split(" se unió a la sala");
+      let invocadorString="";
+      if(invocadorArray.length>1){
+        invocadorString = invocadorArray.toString();
+        this.invocadoresForm.get('nombreInvocador').setValue(invocadorArray.toString());
+      }
+    });
+  }
+  
   onSubmit() {
-    if(this.invocadoresForm.valid){
-      this.router.navigate(['/invocador/'+this.invocadoresForm.get('nombreInvocador').value])
+    let invocadorArray=this.invocadoresForm.get('nombreInvocador').value.split(',');
+    if(invocadorArray.length>1){
+      if(this.invocadoresForm.valid){
+        this.router.navigate(['/multi-invocador/'+this.invocadoresForm.get('nombreInvocador').value])
+      }
+    }else{
+      if(this.invocadoresForm.valid){
+        this.router.navigate(['/invocador/'+this.invocadoresForm.get('nombreInvocador').value])
+      }
     }
   }
 

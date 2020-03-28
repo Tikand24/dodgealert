@@ -3,18 +3,8 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { DataApiService } from '../services/data-api.service';
+import { Summoner } from '../models/Summoner';
 
-export interface Summoner {
-  clasification_id: string;
-  created_at: string;
-  honor_level_id: string;
-  id: string;
-  name: string;
-  percentage_victori: string;
-  state: string;
-  updated_at: string;
-  user_id: string;
-}
 
 @Component({
   selector: 'app-singleinvocador',
@@ -23,8 +13,19 @@ export interface Summoner {
 })
 export class SingleinvocadorComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
-  private nameInvocador: String;
-  private honorInovcador: String;
+  private invocador: Summoner = {
+    clasification_id: null,
+    clasification:null,
+    honor:null,
+    created_at:null,
+    honor_level_id:null,
+    id:null,
+    name:null,
+    percentage_victori:null,
+    state:null,
+    updated_at:null,
+    user_id:null,
+  };
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -54,12 +55,10 @@ export class SingleinvocadorComponent implements OnInit{
     /*this.dataApi.getDataApiRiot(this.nameInvocador).subscribe((summoner) => {
       console.log(summoner);
     });*/
+    console.log(this.invocador);
     this.dataApi.getSummonerName(this.route.snapshot.paramMap.get('invocador')).subscribe((summoner: Summoner)  => {
-      this.getConverted(summoner.name,summoner.id);
+      this.invocador = summoner;
+      console.log(this.invocador);
     });
-  }
-  getConverted(name: String, honor: String): void {
-    this.nameInvocador=name;
-    this.honorInovcador=honor;
   }
 }

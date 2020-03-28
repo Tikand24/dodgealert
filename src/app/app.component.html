@@ -1,16 +1,6 @@
-<h1>
-  {{title}}
-</h1>
-
-<nav>
-  <br>
-  <a routerLink="/inicio">Inicio</a>
-  <br>
-  <a routerLink="/invocador">Invocador</a>
-  <br>
-  <a routerLink="/calify-invocador">calificar</a>
-  
-</nav>
-<div class="container">
-  <router-outlet></router-outlet>
+<div>
+  <app-nav></app-nav>
+  <div class="container">
+      <router-outlet></router-outlet>
+  </div>
 </div>

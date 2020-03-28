@@ -17,6 +17,7 @@ import { SingleinvocadorComponent } from './singleinvocador/singleinvocador.comp
 import { CalifyinvocadorComponent } from './califyinvocador/califyinvocador.component';
 
 import { DataApiService } from 'src/app/services/data-api.service';
+import { MultiinvocadorComponent } from './multiinvocador/multiinvocador.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DataApiService } from 'src/app/services/data-api.service';
     FormdosComponent,
     InicioComponent,
     SingleinvocadorComponent,
-    CalifyinvocadorComponent
+    CalifyinvocadorComponent,
+    MultiinvocadorComponent
   ],
   imports: [
     BrowserModule,
